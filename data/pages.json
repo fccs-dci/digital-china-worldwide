@@ -1,0 +1,48 @@
+[
+	{
+		"id": 1,
+		"user_updated": "90cef870-7b6b-4a78-ae8e-64aaba46e3c1",
+		"date_updated": "2024-06-29T19:21:08.109Z",
+		"slug": "about",
+		"translations": [
+			{
+				"languages_code": "en-US",
+				"title": "About",
+				"content": "This is the English About page."
+			},
+			{
+				"languages_code": "zh-CN",
+				"title": "关于",
+				"content": "这是简体中文的关于页面。"
+			},
+			{
+				"languages_code": "zh-TW",
+				"title": "關於",
+				"content": "這是繁體中文的關於頁面。"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"user_updated": null,
+		"date_updated": null,
+		"slug": "collaborators-and-contributors",
+		"translations": [
+			{
+				"languages_code": "en-US",
+				"title": "Collaborators and Contributors",
+				"content": "This is a page about the the contributors and collaborators of this project."
+			},
+			{
+				"languages_code": "zh-CN",
+				"title": "合作伙伴和贡献者",
+				"content": "这是关于合作伙伴和贡献者的页面。"
+			},
+			{
+				"languages_code": "zh-TW",
+				"title": "合作夥伴及貢獻者",
+				"content": "這是關於合作夥伴和貢獻者的頁面。"
+			}
+		]
+	}
+]
