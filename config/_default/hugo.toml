@@ -1,0 +1,103 @@
+DefaultContentLanguage = "en"
+author = ""
+baseURL = "https://dcw.fairbank.fas.harvard.edu"
+defaultContentLanguageInSubdir = true
+enableInlineShortcodes = true
+enableRobotsTXT = true
+languageCode = "en"
+theme = "vnovel"
+title = "Digital China Worldwide"
+
+# Please enable this feature if the site is available in Japanese, Chinese or Korean.
+hasCJKLanguage = true
+
+# If you're using Google Analytics, you can enable this feature.
+#googleAnalytics = "G-1234567890"
+
+# Disqus Comment System
+#disqusShortname = ""
+
+[params]
+# The number of articles to be displayed on a single page.
+api_url = "https://backend.dcw.fairbankcenter.org"
+paginator_pages = "6"
+
+# Site logo.
+#logo = ""
+
+[params.homepage_meta_tags]
+meta_description = "Pixiv-like theme for novels."
+meta_og_description = "Pixiv-like theme for novels."
+meta_og_image = "https://vnovel.pages.dev/img/thumbnail.png"
+meta_og_title = "VNovel"
+meta_og_type = "website"
+meta_og_url = "https://vnovel.pages.dev"
+meta_twitter_card = "summary_large_image"
+meta_twitter_creator = "@username"
+meta_twitter_site = "@username"
+
+[languages]
+
+[languages.en]
+contentDir = "content/en"
+disabled = false
+languageCode = 'en-US'
+languageDirection = 'ltr'
+languageName = 'English'
+title = 'Digital China Worldwide'
+weight = 1
+
+[languages.zh-tw]
+contentDir = "content/zh-tw"
+disabled = false
+languageCode = 'zh-TW'
+languageDirection = 'ltr'
+languageName = '繁體中文'
+title = 'Digital China Worldwide'
+weight = 2
+
+[languages.zh-cn]
+contentDir = "content/zh-cn"
+disabled = false
+languageCode = 'zh-CN'
+languageDirection = 'ltr'
+languageName = '简体中文'
+title = 'Digital China Worldwide'
+weight = 3
+
+[languages.ja]
+contentDir = "content/ja"
+disabled = false
+languageCode = 'ja'
+languageDirection = 'ltr'
+languageName = '日本語'
+title = 'Digital China Worldwide'
+weight = 4
+
+[languages.ko]
+contentDir = "content/ko"
+disabled = false
+languageCode = 'ko'
+languageDirection = 'ltr'
+languageName = '한국어'
+title = 'Digital China Worldwide'
+weight = 5
+
+# [menu]
+
+# [[menu.main]]
+# identifier = "about"
+# name = "About"
+# url = "/about/"
+# weight = 1
+
+# [[menu.main]]
+# identifier = "tags"
+# name = "Tags"
+# url = "/tags/"
+# weight = 2
+
+# If you're using Yandex.Metrica, you can enable this feature.
+#[params.analytics.yandexmetrica]
+#    enabled = true
+#    tagNumber = ''
