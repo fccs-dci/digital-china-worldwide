@@ -1,0 +1,126 @@
+<style>
+    .mopen {
+        float: left;
+        display: block;
+        background: rgba(255, 255, 255, 0);
+        position: relative;
+        z-index: 1000;
+    }
+
+    .mopen span {
+        transition: all 0.3s;
+        transform: rotate(0deg);
+        width: 50px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -25px;
+    }
+
+    .mopen .top {
+        transform: translateY(-17px);
+    }
+
+    .mopen .bottom {
+        transform: translateY(17px);
+    }
+
+    .mopen.is-open span {
+        background: #fff;
+    }
+
+    .mopen.is-open .middle {
+        background: rgba(255, 255, 255, 0);
+    }
+
+    .mopen.is-open .top {
+        transform: rotate(-45deg) translateY(0px);
+    }
+
+    .mopen.is-open .bottom {
+        transform: rotate(45deg) translateY(0px);
+    }
+
+    #overlay {
+        visibility: hidden;
+        display: flex;
+        transition: 0.3s linear;
+        position: absolute;
+        z-index: 900;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #222;
+        opacity: 0;
+    }
+
+    #overlay.open {
+        visibility: visible;
+        opacity: 0.95;
+    }
+
+    body.scroll-lock {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+    }
+</style>
+<header class="bg-white dark:bg-warmgray-800 dark:text-white">
+    <div id="overlay">
+        <ul class="text-center list-none text-white text-3xl">
+            {{ range .Site.Menus.main }}
+            <li class="p-2">
+                <a href="{{ .URL }}">
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            {{ end }}
+            {{ range .Site.Menus.ex }}
+            <li class="p-2">
+                <a href="{{ .URL }}">
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    <nav class="flex items-center justify-between flex-wrap p-4">
+        <div class="flex items-center flex-shrink-0 text-2xl mx-6">
+            {{ if .Site.Params.logo }}
+            <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logo }}" class="w-24 h-auto" /></a>
+            {{ else }}
+            <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+            {{ end }}
+        </div>
+        <div class="pr-4 block lg:hidden">
+            <div id="hamburgerbtn" class="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen">
+                <span class="top bg-black dark:bg-white"></span>
+                <span class="middle bg-black dark:bg-white"></span>
+                <span class="bottom bg-black dark:bg-white"></span>
+            </div>
+        </div>
+        <div class="hidden w-full ml-6 block flex-grow lg:flex lg:flex-row lg:items-center lg:w-auto" id="mobileMenu">
+            <div class="text-lg lg:flex-grow">
+            </div>
+            <div class="text-lg mt-3 lg:m-0 flex">
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL }}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-gray-500 duration-200 mr-8">
+                    {{ .Name }}
+                </a>
+                {{ end }}
+                <button onclick="toggleDarkMode()" class="focus:outline-none mr-5"><i class="icon-moon"
+                        id="icon"></i></button>
+            </div>
+            <div>
+                {{ partial "language-switcher.html" . }}
+            </div>
+        </div>
+    </nav>
+</header>

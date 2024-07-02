@@ -1,0 +1,34 @@
+{{/* Define the target language for this adapter */}}
+{{ $targetLanguage := "en-US" }}  {{/* Change this to the desired language code */}}
+
+{{/* Get local data using SITE.Data */}}
+{{ $data := .Site.Data.pages }}
+
+{{/* Add pages for the target language. */}}
+{{ range $data }}
+  {{ $slug := .slug }}
+  {{ $dateUpdated := .date_updated }}
+  {{ $userUpdated := .user_updated }}
+  
+  {{ range .translations }}
+    {{ if eq .languages_code $targetLanguage }}
+      {{/* Add page for the target language. */}}
+      {{ $content := dict "mediaType" "text/markdown" "value" .content }}
+      {{ $dates := dict }}
+      {{ with $dateUpdated }}
+        {{ $dates = dict "date" (time.AsTime .) }}
+      {{ end }}
+      {{ $params := dict "user_updated" $userUpdated }}
+      {{ $page := dict
+        "content" $content
+        "dates" $dates
+        "kind" "page"
+        "params" $params
+        "path" $slug
+        "title" .title
+      }}
+      {{ $.AddPage $page }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+

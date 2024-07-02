@@ -4,7 +4,7 @@ baseURL = "https://dcw.fairbank.fas.harvard.edu"
 defaultContentLanguageInSubdir = true
 enableInlineShortcodes = true
 enableRobotsTXT = true
-languageCode = "en"
+languageCode = "en-us"
 theme = "vnovel"
 title = "Digital China Worldwide"
 
@@ -35,53 +35,6 @@ meta_og_url = "https://vnovel.pages.dev"
 meta_twitter_card = "summary_large_image"
 meta_twitter_creator = "@username"
 meta_twitter_site = "@username"
-
-[languages]
-
-[languages.en]
-contentDir = "content/en"
-disabled = false
-languageCode = 'en-US'
-languageDirection = 'ltr'
-languageName = 'English'
-title = 'Digital China Worldwide'
-weight = 1
-
-[languages.zh-tw]
-contentDir = "content/zh-tw"
-disabled = false
-languageCode = 'zh-TW'
-languageDirection = 'ltr'
-languageName = '繁體中文'
-title = 'Digital China Worldwide'
-weight = 2
-
-[languages.zh-cn]
-contentDir = "content/zh-cn"
-disabled = false
-languageCode = 'zh-CN'
-languageDirection = 'ltr'
-languageName = '简体中文'
-title = 'Digital China Worldwide'
-weight = 3
-
-[languages.ja]
-contentDir = "content/ja"
-disabled = false
-languageCode = 'ja'
-languageDirection = 'ltr'
-languageName = '日本語'
-title = 'Digital China Worldwide'
-weight = 4
-
-[languages.ko]
-contentDir = "content/ko"
-disabled = false
-languageCode = 'ko'
-languageDirection = 'ltr'
-languageName = '한국어'
-title = 'Digital China Worldwide'
-weight = 5
 
 # [menu]
 

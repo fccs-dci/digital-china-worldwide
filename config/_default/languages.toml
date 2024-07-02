@@ -1,0 +1,44 @@
+[en]
+contentDir = "content/en"
+disabled = false
+languageCode = 'en-US'
+languageDirection = 'ltr'
+languageName = 'English'
+title = 'Digital China Worldwide'
+weight = 1
+
+[zh-tw]
+contentDir = "content/zh-tw"
+disabled = false
+languageCode = 'zh-TW'
+languageDirection = 'ltr'
+languageName = '繁體中文'
+title = 'Digital China Worldwide'
+weight = 2
+
+[zh-cn]
+contentDir = "content/zh-cn"
+disabled = false
+languageCode = 'zh-CN'
+languageDirection = 'ltr'
+languageName = '简体中文'
+title = 'Digital China Worldwide'
+weight = 3
+
+[ja]
+contentDir = "content/ja"
+disabled = false
+languageCode = 'ja'
+languageDirection = 'ltr'
+languageName = '日本語'
+title = 'Digital China Worldwide'
+weight = 4
+
+[ko]
+contentDir = "content/ko"
+disabled = false
+languageCode = 'ko'
+languageDirection = 'ltr'
+languageName = '한국어'
+title = 'Digital China Worldwide'
+weight = 5

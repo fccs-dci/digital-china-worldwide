@@ -1,11 +1,23 @@
-#  [[menu.main]]
-#    identifier = "about"
-#    name = "About"
-#    url = "/about/"
-#    weight = 1
-#
-#  [[menu.main]]
-#    identifier = "tags"
-#    name = "Tags"
-#    url = "/tags/"
-#    weight = 2
+[[main]]
+identifier = "resources"
+name = "Resources"
+url = "/resources/"
+weight = 1
+
+[[main]]
+identifier = "creators"
+name = "Creators"
+url = "/creators/"
+weight = 2
+
+[[main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 3
+
+[[main]]
+identifier = "suggestions"
+name = "Suggestions"
+url = "/suggestions/"
+weight = 4

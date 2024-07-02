@@ -1,0 +1,5 @@
+[[main]]
+identifier = "about"
+name = "簡介"
+url = "/zh-tw/about/"
+weight = 1
