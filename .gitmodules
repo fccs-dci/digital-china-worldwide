@@ -1,0 +1,3 @@
+[submodule "themes/vnovel"]
+	path = themes/vnovel
+	url = https://github.com/kltng/vnovel.git
