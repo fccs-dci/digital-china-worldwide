@@ -1,2 +1,8 @@
 [visit_resource]
-other = "Visit Resource"
+other = "Visit Resource's Website"
+
+[visit_creator]
+other = "Visit Creator's Website"
+
+[created_by]
+other = "Resources created by this creator:"

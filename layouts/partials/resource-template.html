@@ -6,21 +6,20 @@
 {{ if eq .status "draft" }}
 {{ $slug := .slug }}
 {{ $url := .url }}
-{{ $creatorTitles := slice }}
-
+{{ $creatorInfo := slice }}
 {{ range .creator }}
 {{ $creatorID := .creators_id.id }}
 {{ range $data.creators }}
 {{ if eq .id $creatorID }}
+{{ $creatorSlug := printf "/%s/creators/%s" $.targetLanguage .slug }}
 {{ range .translations }}
 {{ if eq .languages_code.code $.targetLanguage }}
-{{ $creatorTitles = $creatorTitles | append .title_translated }}
+{{ $creatorInfo = $creatorInfo | append (dict "title" .title_translated "slug" $creatorSlug) }}
 {{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
-
 {{ range .translations }}
 {{ if eq .languages_code.code $.targetLanguage }}
 {{/* Add resource for the target language. */}}
@@ -30,7 +29,7 @@
 "summary" .summary
 "resource_url" $url
 "content_status" .content_status
-"creators" $creatorTitles
+"creators" $creatorInfo
 }}
 {{ $page := dict
 "content" $content

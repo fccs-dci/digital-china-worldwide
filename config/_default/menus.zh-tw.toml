@@ -1,7 +1,7 @@
 [[main]]
-identifier = "about"
-name = "簡介"
-url = "/zh-tw/about/"
+identifier = "resources"
+name = "Resources"
+url = "/zh-tw/resources/"
 weight = 1
 
 [[main]]
