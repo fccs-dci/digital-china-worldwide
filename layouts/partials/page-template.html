@@ -1,0 +1,23 @@
+{{ define "partials/page-template.html" }}
+{{ $data := .Site.Data.all.data }}
+
+{{/* Add pages for the target language. */}}
+{{ range $data.pages }}
+{{ $slug := .slug }}
+
+{{ range .translations }}
+{{ if eq .languages_code.code $.targetLanguage }}
+{{/* Add page for the target language. */}}
+{{ $content := dict "mediaType" "text/markdown" "value" .content }}
+{{ $page := dict
+"content" $content
+"kind" "page"
+"params" dict
+"path" $slug
+"title" .title_translated
+}}
+{{ $.context.AddPage $page }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

@@ -1,19 +1,19 @@
 [[main]]
-identifier = "about"
-name = "簡介"
-url = "/zh-tw/about/"
+identifier = "resources"
+name = "Resources"
+url = "/zh-cn/resources/"
 weight = 1
 
 [[main]]
 identifier = "creators"
 name = "Creators"
-url = "/en/creators/"
+url = "/zh-cn/creators/"
 weight = 2
 
 [[main]]
 identifier = "about"
 name = "About"
-url = "/en/about/"
+url = "/zh-cn/about/"
 weight = 3
 
 [[main]]

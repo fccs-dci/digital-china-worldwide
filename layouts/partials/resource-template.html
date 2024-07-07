@@ -1,0 +1,47 @@
+{{ define "partials/resource-template.html" }}
+{{/* Get local data using SITE.Data */}}
+{{ $data := .Site.Data.all.data }}
+{{/* Add resources for the target language, but only if status is "published". */}}
+{{ range $data.resources }}
+{{ if eq .status "draft" }}
+{{ $slug := .slug }}
+{{ $url := .url }}
+{{ $creatorTitles := slice }}
+
+{{ range .creator }}
+{{ $creatorID := .creators_id.id }}
+{{ range $data.creators }}
+{{ if eq .id $creatorID }}
+{{ range .translations }}
+{{ if eq .languages_code.code $.targetLanguage }}
+{{ $creatorTitles = $creatorTitles | append .title_translated }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ range .translations }}
+{{ if eq .languages_code.code $.targetLanguage }}
+{{/* Add resource for the target language. */}}
+{{ $content := dict "mediaType" "text/markdown" "value" .description }}
+{{ $params := dict
+"title" .title_translated
+"summary" .summary
+"resource_url" $url
+"content_status" .content_status
+"creators" $creatorTitles
+}}
+{{ $page := dict
+"content" $content
+"kind" "page"
+"params" $params
+"path" $slug
+"title" .title_translated
+}}
+{{ $.context.AddPage $page }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
