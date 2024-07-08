@@ -66,11 +66,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Delete existing Meilisearch index
         run: |
             curl --request DELETE \
@@ -89,6 +85,10 @@ jobs:
                     --data @"${lang_folder}index.json"
                 fi
             done
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
 
   # Deployment job
   deploy:
