@@ -4,6 +4,7 @@
 
 {{/* Add creators for the target language */}}
 {{ range $data.creators }}
+{{ if eq .status "published" }}
 {{ $creatorSlug := .slug }}
 {{ $creatorID := .id }}
 {{ $creatorURL := .url | default "" }}

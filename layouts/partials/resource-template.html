@@ -3,7 +3,7 @@
 {{ $data := .Site.Data.all.data }}
 {{/* Add resources for the target language, but only if status is "published". */}}
 {{ range $data.resources }}
-{{ if eq .status "draft" }}
+{{ if eq .status "published" }}
 {{ $slug := .slug }}
 {{ $url := .url }}
 {{ $creatorInfo := slice }}
