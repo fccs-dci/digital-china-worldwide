@@ -79,7 +79,7 @@ jobs:
                   lang=$(basename "$lang_folder")
                   echo "Uploading index for language: $lang"
                   curl --request POST \
-                    --url https://dcw-meilisearch.dcw.fairbankcenter.org/indexes/dcw \
+                    --url https://dcw-meilisearch.dcw.fairbankcenter.org/indexes/dcw/documents \
                     --header "Authorization: Bearer $MEILISEARCH_API_KEY" \
                     --header "Content-Type: application/json" \
                     --data @"${lang_folder}index.json"
