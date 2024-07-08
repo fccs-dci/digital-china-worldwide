@@ -33,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.128.0
+      MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
     steps:
       - name: Install Hugo CLI
         run: |
@@ -70,6 +71,24 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+      - name: Delete existing Meilisearch index
+        run: |
+            curl --request DELETE \
+            --url https://dcw-meilisearch.dcw.fairbankcenter.org/indexes/dcw \
+            --header "Authorization: Bearer $MEILISEARCH_API_KEY"
+      - name: Upload new index files to Meilisearch
+        run: |
+            for lang_folder in public/*/; do
+                if [ -f "${lang_folder}index.json" ]; then
+                  lang=$(basename "$lang_folder")
+                  echo "Uploading index for language: $lang"
+                  curl --request POST \
+                    --url https://dcw-meilisearch.dcw.fairbankcenter.org/indexes/dcw \
+                    --header "Authorization: Bearer $MEILISEARCH_API_KEY" \
+                    --header "Content-Type: application/json" \
+                    --data @"${lang_folder}index.json"
+                fi
+            done
 
   # Deployment job
   deploy:
