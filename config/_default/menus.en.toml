@@ -11,8 +11,8 @@ url = "/en/creators/"
 weight = 2
 
 [[main]]
-identifier = "Search"
-name = "search"
+identifier = "search"
+name = "Search"
 url = "/en/search/"
 weight = 3
 
