@@ -1,4 +1,5 @@
-{{ define "main"}}
+{{ define "main" }}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,21 +24,23 @@
 </head>
 
 <body>
-    <div id="app" class="wrapper w-full">
+    <div id="app" class="container wrapper w-full">
         <ais-instant-search :search-client="searchClient" index-name="dcw">
-            <ais-search-box placeholder="Search..."></ais-search-box>
-            <ais-hits>
-                <template v-slot:item="{ item }">
-                    <div class="search-result">
-                        <a :href="item.url" class="search-result-title">
-                            <ais-highlight :hit="item" attribute="title" />
-                        </a>
-                        <div class="search-result-content">
-                            <ais-highlight :hit="item" attribute="content" />
+            <ais-search-box placeholder="Search..." @input="updateQuery"></ais-search-box>
+            <div v-if="hasQuery">
+                <ais-hits>
+                    <template v-slot:item="{ item }">
+                        <div class="search-result">
+                            <a :href="item.url" class="search-result-title">
+                                <ais-highlight :hit="item" attribute="title" />
+                            </a>
+                            <div class="search-result-content">
+                                <ais-highlight :hit="item" attribute="content" />
+                            </div>
                         </div>
-                    </div>
-                </template>
-            </ais-hits>
+                    </template>
+                </ais-hits>
+            </div>
         </ais-instant-search>
     </div>
 </body>
@@ -53,7 +56,6 @@
             });
         },
     };
-
     const app = Vue
         .createApp({
             data () {
@@ -62,6 +64,12 @@
                         'https://dcw-meilisearch.dcw.fairbankcenter.org/',
                         'c4db95074515eea1f9ef003495bc4a54e2d71bc5a1a0bdd7cd07f713fc49728e',
                     ).searchClient,
+                    hasQuery: false
+                }
+            },
+            methods: {
+                updateQuery (event) {
+                    this.hasQuery = event.target.value.trim().length > 0;
                 }
             }
         })
@@ -70,4 +78,5 @@
 </script>
 
 </html>
+
 {{ end }}
