@@ -48,6 +48,12 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Download backend data
+        run: |
+             curl -X POST https://backend.dcw.fairbankcenter.org/graphql \
+               -H "Content-Type: application/json" \
+               -d '{"query": "query { pages { id slug date_updated translations { id languages_code { code } content } } resources { id slug status title url abbreviation date_updated creator { id } translations { id title_translated languages_code { code } summary description content_status } creator { creators_id { id } } } creators { id slug status title url abbreviation date_updated translations { id title_translated languages_code { code } description } } }"}' \
+               > data/all.json
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
