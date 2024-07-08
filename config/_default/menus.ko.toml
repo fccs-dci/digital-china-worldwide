@@ -1,23 +1,29 @@
 [[main]]
 identifier = "resources"
 name = "Resources"
-url = "/en/resources/"
+url = "/ko/resources/"
 weight = 1
 
 [[main]]
 identifier = "creators"
 name = "Creators"
-url = "/en/creators/"
+url = "/ko/creators/"
 weight = 2
+
+[[main]]
+identifier = "search"
+name = "Search"
+url = "/en/search/"
+weight = 3
 
 [[main]]
 identifier = "about"
 name = "About"
-url = "/en/about/"
-weight = 3
+url = "/ko/about/"
+weight = 4
 
 [[main]]
 identifier = "participate"
 name = "Participate"
-url = "/en/participate/"
-weight = 4
+url = "/ko/participate/"
+weight = 5

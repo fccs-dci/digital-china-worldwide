@@ -11,13 +11,19 @@ url = "/zh-cn/creators/"
 weight = 2
 
 [[main]]
+identifier = "search"
+name = "Search"
+url = "/en/search/"
+weight = 3
+
+[[main]]
 identifier = "about"
 name = "About"
 url = "/zh-cn/about/"
-weight = 3
+weight = 4
 
 [[main]]
 identifier = "participate"
 name = "Participate"
-url = "/en/participate/"
-weight = 4
+url = "/zh-cn/participate/"
+weight = 5

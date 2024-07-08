@@ -1,23 +1,29 @@
 [[main]]
 identifier = "resources"
 name = "Resources"
-url = "/en/resources/"
+url = "/jp/resources/"
 weight = 1
 
 [[main]]
 identifier = "creators"
 name = "Creators"
-url = "/en/creators/"
+url = "/jp/creators/"
 weight = 2
+
+[[main]]
+identifier = "search"
+name = "Search"
+url = "/en/search/"
+weight = 3
 
 [[main]]
 identifier = "about"
 name = "About"
-url = "/en/about/"
-weight = 3
+url = "/jp/about/"
+weight = 4
 
 [[main]]
 identifier = "participate"
 name = "Participate"
-url = "/en/participate/"
-weight = 4
+url = "/jp/participate/"
+weight = 5
