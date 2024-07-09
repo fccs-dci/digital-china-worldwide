@@ -14,7 +14,7 @@
             {{ $content := .Content }}
             {{ $content = replaceRE `<a href="(https?://.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
             {{ $content = replaceRE `<a href="(mailto:.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
-                            {{ $content | safeHTML }}
+            {{ $content | safeHTML }}
         </div>
         {{ if .Params.resources }}
         <h3>{{ i18n "created_by"}}:</h3>
