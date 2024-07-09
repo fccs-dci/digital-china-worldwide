@@ -20,7 +20,7 @@ hasCJKLanguage = true
 [params]
 # The number of articles to be displayed on a single page.
 api_url = ""
-paginator_pages = "6"
+paginator_pages = "9"
 
 # Site logo.
 #logo = ""
