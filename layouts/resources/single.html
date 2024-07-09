@@ -13,7 +13,11 @@
         {{ range .Params.creators }}
         <a href="{{ .slug }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
         {{ end }}
-        <div class=" text-lg py-3 mb-3">{{.Content}}
+        <div class=" text-lg py-3 mb-3">
+            {{ $content := .Content }}
+            {{ $content = replaceRE `<a href="(https?://.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
+            {{ $content = replaceRE `<a href="(mailto:.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
+                            {{ $content | safeHTML }}
         </div>
     </div>
 </div>
