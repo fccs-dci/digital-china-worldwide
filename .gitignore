@@ -5,3 +5,5 @@ node_modules
 /data
 data/all.json
 codebase.md
+.aidigestignore
+.DS_Store
