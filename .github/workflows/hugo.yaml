@@ -53,6 +53,9 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Download backend data
         run: |
+
+          rm -f data/all.json
+
           max_attempts=5
           attempt=1
           while [ $attempt -le $max_attempts ]; do
