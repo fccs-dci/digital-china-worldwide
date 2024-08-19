@@ -53,51 +53,8 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Download backend data
         run: |
-
-          rm -f data/all.json
-
-          max_attempts=5
-          attempt=1
-          while [ $attempt -le $max_attempts ]; do
-            echo "Attempt $attempt of $max_attempts"
-            response=$(curl -s -w "\n%{http_code}" -X POST https://backend.dcw.fairbankcenter.org/graphql \
-              -H "Content-Type: application/json" \
-              -d '{"query": "query { pages { id slug date_updated translations { id languages_code { code } content } } resources { id slug status title url abbreviation date_updated creator { id } translations { id title_translated languages_code { code } summary description content_status } creator { creators_id { id } } } creators { id slug status title url abbreviation date_updated translations { id title_translated languages_code { code } description } } }"}' \
-              --max-time 300 \
-              --retry 3 \
-              --retry-delay 5 \
-              --retry-max-time 60)
-            
-            http_code=$(echo "$response" | tail -n1)
-            content=$(echo "$response" | sed '$d')
-            
-            if [ "$http_code" = "200" ]; then
-              if echo "$content" | jq -e . >/dev/null 2>&1; then
-                if ! echo "$content" | jq -e '.errors' >/dev/null 2>&1; then
-                  echo "$content" > data/all.json
-                  echo "Download successful"
-                  break
-                else
-                  echo "GraphQL returned errors:"
-                  echo "$content" | jq '.errors'
-                fi
-              else
-                echo "Response is not valid JSON:"
-                echo "$content"
-              fi
-            else
-              echo "Download failed. HTTP Code: $http_code"
-              echo "Response: $content"
-            fi
-            
-            if [ $attempt -eq $max_attempts ]; then
-              echo "Max attempts reached. Failing the workflow."
-              exit 1
-            fi
-            
-            sleep 30
-            attempt=$((attempt+1))
-          done
+            chmod +x download_backend_data.sh
+            ./download_backend_data.sh
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
