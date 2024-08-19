@@ -53,8 +53,8 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Download backend data
         run: |
-            chmod +x download_backend_data.sh
-            ./download_backend_data.sh
+            chmod +x download_data.sh
+            ./download_data.sh
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
